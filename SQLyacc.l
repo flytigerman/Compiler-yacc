@@ -5,11 +5,8 @@ ParserWizard generated Lex file.
 
 Date: 2020年6月7日
 ****************************************************************************/
-#include"Operate.h"
-#include "SQL.tab.h"
+#include "SQLyacc.tab.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 
 int yylex(void);
@@ -39,40 +36,15 @@ into into
 values values
 set set
 database database
-databases {database}s
 table table
-tables tables
-primary primary
-key key
-not not
-null null
-order order
-group group
-by by
-having having
-asc asc
-desc desc
-in in
-exists exists
+
 and and
 or or
-like like
-alter alter
-add add
-column column
-view view
-index index
+
 int int
 double double
 char char
-show show
-foreign foreign
-references references
-restrict restrict
-cascade cascade
-exit exit
-bye bye
-lru lru
+
 
 %%
 
@@ -89,40 +61,14 @@ lru lru
 {values} { return VALUES;}
 {set} { return SET;} 
 {database} { return DATABASE;} 
-{databases} { return DATABASES;}
-{table} { return TABLE;}
-{tables} { return TABLES;}
-{primary} {printf("PRIMARY"); return PRIMARY;}
-{key} {printf("KEY"); return KEY;} 
-{not} { return NOT;} 
-{null} { return null;} 
-{order} {printf("ORDER"); return ORDER;}
-{group} {printf("GROUP"); return GROUP;}
-{by} {printf("BY"); return BY;}
-{having} {printf("HAVING"); return HAVING;}
-{asc} {printf("ASC"); return ASC;}
-{desc} {printf("DESC"); return DESC;}
-{in} {printf("IN"); return IN;}
-{exists} {printf("EXISTS"); return EXISTS;}
+{table} { return TABLE;} 
+
 {and} { return AND;}
 {or} {return OR;}
-{like} {printf("LIKE"); return LIKE;}
-{alter} {printf("ALTER"); return ALTER;}
-{add} {printf("ADD"); return ADD;}
-{column} { return COLUMN;}
-{view} {printf("VIEW"); return VIEW;}
-{index} {printf("INDEX"); return INDEX;}
+
 {int} { return INT;}
 {double} { return DOUBLE;}
-{char} { return VARCHAR;}
-{show} { return SHOW;}
-{foreign} {printf("FOREIGN");return FOREIGN;}
-{references} {printf("REFERENCES");return REFERENCES;}
-{restrict} {printf("RESTRICT");return RESTRICT;}
-{cascade} {printf("CASCADE");return CASCADE;}
-{bye} { return BYE;}
-{exit} { return EXIT;}
-{lru} {return LRU;}
+{char} { return CHAR;}
 
 {letter} {
     
